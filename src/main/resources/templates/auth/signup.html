@@ -2,9 +2,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>signup</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/signup.css">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-
+    <div id="container">
+        <header>
+            <h1 class="logo">Test Security</h1>
+        </header>
+        <main class="signup">
+            <div class="signup_form_group">
+                <h1 class="signup_text">회원가입</h1>
+                <div class="signup_form">
+                    <label for="">이름</label>
+                    <input type="text" name="name" placeholder="이름을 입력해주세요">
+                    <label for="">이메일</label>
+                    <input type="email" name="password" placeholder="이메일을 입력해주세요">
+                    <label for="">아이디</label>
+                    <input type="text" name="username" placeholder="아이디를 입력해주세요">
+                    <label for="">비밀번호</label>
+                    <input type="password" name="email" placeholder="4자이상 12자 이하 특수문자포함">
+                </div>
+                <div>
+                    <button type="button" class="signup-button">가입하기</button>
+                    <button type="button" class="signin-button">로그인</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script type="text/javascript" src="/static/js/signup.js"></script>
 </body>
 </html>

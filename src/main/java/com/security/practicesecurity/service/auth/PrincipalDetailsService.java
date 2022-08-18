@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.security.practicesecurity.domain.user.User;
 import com.security.practicesecurity.domain.user.UserRepository;
+import com.security.practicesecurity.web.dto.auth.SignupReqDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -35,22 +36,10 @@ public class PrincipalDetailsService implements UserDetailsService{
 		
 	}
 	
-	public boolean adduser() {
-		User user =User.builder()
-						.user_name("박준형")
-						.user_email("dj043045@gmail.com")
-						.user_id("cccc")
-						.user_password(new BCryptPasswordEncoder().encode("1234"))
-						.user_roles("ROLE_USER, ROLE_MANAGER")
-						.build();
+	public boolean adduser(SignupReqDto signupReqDto) throws Exception{
+	
 		
-		try {
-			userRepository.save(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
+	return userRepository.save(signupReqDto.toEntity()) > 0;
+		
 	}
-
 }
