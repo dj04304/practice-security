@@ -1,4 +1,4 @@
-package com.security.practicesecurity.web.contoller.api;
+package com.security.practicesecurity.web.controller.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

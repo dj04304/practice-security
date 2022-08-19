@@ -1,4 +1,4 @@
-package com.security.practicesecurity.web.contoller.api;
+package com.security.practicesecurity.web.controller.api;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.security.practicesecurity.handler.aop.annotation.Timer;
 import com.security.practicesecurity.handler.exception.CustomValidationApiException;
 import com.security.practicesecurity.service.auth.AuthService;
 import com.security.practicesecurity.service.auth.PrincipalDetailsService;
@@ -31,6 +32,7 @@ public class AuthController {
 	private final PrincipalDetailsService principalDetailsService;
 	private final AuthService authService;
 	
+	@Timer
 	@GetMapping("/signup/validation/username")
 	public ResponseEntity<?> checkUsername(@Valid UsernameCheckReqDto usernameCheckReqDto, BindingResult bindingResult) {
 		
@@ -43,7 +45,7 @@ public class AuthController {
 				errorMessage.put(error.getField(), error.getDefaultMessage());
 			});
 			
-			throw new CustomValidationApiException("유효성 검사 실패", errorMessage);
+			
 		}
 		
 		try {
